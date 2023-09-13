@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Visualizer for Djikstra, AStar (A*) etc. path finding algorithms.">
+  <meta name="keywords" content="A*, Astar, Djikstra, Visualizer, Path Finding, js, canvas">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Path Finding Visualizer</title>
+
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+    button {
+      border: none;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: .25rem;
+      cursor: pointer;
+      padding: 5px 8px;
+      margin: 2px 0;
+    }
+    button:hover {
+      background: rgba(255, 255, 255, 1);
+    }
+    .panel {
+      overflow: hidden;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: hsla(0, 0%, 0%, 0.7);
+      color: white;
+      padding: 8px 12px;
+      display: flex;
+      flex-direction: column;
+      border: 2px solid hsla(0, 0%, 0%, 0.8);
+      border-radius: .25rem;
+      max-width: 170px;
+    }
+    .toggle-div {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+    .toggle-button {
+      padding: 2px 12px;
+      margin-bottom: 8px;
+    }
+    .mt-5 {
+      margin-top: 5px !important;
+    }
+    .mb-5 {
+      margin-bottom: 5px !important;
+    }
+    .select > * {
+      cursor: pointer;
+    }
+    .select {
+      margin: 2px 0;
+    }
+    .close {
+      height: 24px !important;
+      width: 32px !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <div class="toggle-div"><button class="toggle-button" id="toggle">^</button></div>
+    <button id="generateMap">Generate Map</button>
+    <button id="clearMap">Clear Map</button>
+    <div class="select mt-5">
+      <input type="radio" name="algorithm" id="djikstra" value="0" checked>
+      <label for="djikstra">Djikstra</label>
+    </div>
+    <div class="select mb-5">
+      <input type="radio" name="algorithm" id="astar" value="1">
+      <label for="astar">A Star</label>
+    </div>
+    <button id="calcInstant">Calculate Path (Instant)</button>
+    <button id="calcAnimate">Calculate Path (Animate)</button>
+    <div class="select mt-5">
+      <input type="checkbox" id="instant" checked>
+      <label for="instant">Instant Calculate</label>
+    </div>
+  </div>
+
+  <canvas id="canvas"></canvas>
+
+  <script src="core/grid.js"></script>
+  <script src="core/cell.js"></script>
+  <script src="core/heap.js"></script>
+  <script src="core/interface.js"></script>
+  <script src="core/interaction.js"></script>
+  <script src="finders/djikstra.js"></script>
+  <script src="finders/aStar.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
